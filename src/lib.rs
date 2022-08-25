@@ -1,9 +1,8 @@
 use std::collections::HashMap;
-use std::ops::Sub;
 
-use rand::{Rng, SeedableRng, thread_rng};
 use rand::distributions::{Distribution, WeightedIndex};
-use rand::rngs::{StdRng, ThreadRng};
+use rand::rngs::StdRng;
+use rand::SeedableRng;
 
 pub struct Keymap {
     map: HashMap<char, f64>,
@@ -21,7 +20,7 @@ impl Keymap {
     }
 
     /// Accepts a HashMap of only lowercase letters and will fill with uppercase
-    pub fn new_from_lower(mut map: HashMap<char, f64>) -> Self {
+    pub fn new_from_lower(map: HashMap<char, f64>) -> Self {
         let mut result = map.clone();
 
         for (char, p) in map {
@@ -81,6 +80,10 @@ impl Keymap {
                 return pw;
             }
         }
+    }
+
+    pub fn calculate_strength_pw(&mut self, password: &str) {
+        return;
     }
 }
 
